@@ -8,7 +8,7 @@ import io.restassured.specification.RequestSpecification;
 import org.json.JSONObject;
 import org.testng.annotations.BeforeMethod;
 
-public class BookerBase {
+public class BookingBase {
 
     protected RequestSpecification reqSpecs;
 
@@ -19,12 +19,10 @@ public class BookerBase {
                 setBaseUri("https://restful-booker.herokuapp.com/").build();
     }
     public Response createNewBooking(JSONObject inputUser) {
-        Response response =
-                RestAssured.given().
-                        spec(reqSpecs).
-                        contentType(ContentType.JSON).
-                        body(inputUser.toString()).
-                        post("/booking")                 ;
-        return response;
+        return RestAssured.given().
+                spec(reqSpecs).
+                contentType(ContentType.JSON).
+                body(inputUser.toString()).
+                post("/booking");
     }
 }

@@ -7,7 +7,7 @@ import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class UpdateBooking extends  BookerBase {
+public class UpdateBooking extends BookingBase {
 //    @Test
 //    public void updateBookingByPutTest()
 //    {
@@ -80,7 +80,7 @@ public class UpdateBooking extends  BookerBase {
         bookingDatesUpdate.put("checkout", "2023-10-20");
         jsonObjectUpdate.put("additionalneeds", "not available");
 
-        System.out.println(String.format("https://restful-booker.herokuapp.com/booking/12318", newID));
+        System.out.printf("https://restful-booker.herokuapp.com/booking/12318%n", newID);
         Response responseUpdate = RestAssured.given().
                 auth().preemptive().basic("admin", "password123").
                 contentType(ContentType.JSON).body(jsonObjectUpdate.toString()).patch( String.format("https://restful-booker.herokuapp.com/booking/12318", newID));

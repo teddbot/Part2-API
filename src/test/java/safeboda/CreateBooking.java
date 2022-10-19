@@ -5,7 +5,7 @@ import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class CreateBooking extends  BookerBase
+public class CreateBooking extends BookingBase
 {
   @Test
    public void createBookingTest()
